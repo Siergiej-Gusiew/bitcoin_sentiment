@@ -47,6 +47,7 @@ nbclassic==0.4.8
 nbclient==0.7.0
 nbconvert==7.2.5
 nbformat==5.7.0
+nbqa==1.5.3
 nest-asyncio==1.5.6
 nodeenv==1.7.0
 notebook==6.5.2

@@ -7,3 +7,4 @@ scikit-learn
 pyyaml
 black[jupyter]
 pre-commit
+nbqa
