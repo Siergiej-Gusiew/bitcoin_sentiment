@@ -6,3 +6,4 @@ flake8
 scikit-learn
 pyyaml
 black[jupyter]
+pre-commit
