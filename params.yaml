@@ -1,0 +1,9 @@
+data_input:
+  all_data: 'data/raw/all-data.csv'
+data_interim:
+data_output:
+model_input:
+model_output:
+  dumb_model: 'model/dumb_model.pkl'
+  base_model: 'model/base_model.pkl'
+  good_model: 'model/good_model.pkl' 
