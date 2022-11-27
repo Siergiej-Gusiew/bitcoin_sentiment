@@ -2,4 +2,5 @@ If you want to reproduce model training or to do some other experiments, then pu
 here data from the [URL](https://drive.google.com/drive/folders/1VLEOCD0heLWvYuIo4nzVevtZXoaQuSG_?usp=share_link)
 
 List of data to be stored:
-- all-data.csv
+- base_model.pkl
+- vectorizer.pkl

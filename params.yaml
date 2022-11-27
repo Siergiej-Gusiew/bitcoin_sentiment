@@ -3,8 +3,8 @@ data_input:
 data_interim:
 data_output:
 model_input:
+  rnd_seed: 21
 model_output:
   base_model: 'model/base_model.pkl'
   good_model: 'model/good_model.pkl'
-reproducibility:
-  rnd_seed: 21
+  vectorizer: 'model/vectorizer.pkl'

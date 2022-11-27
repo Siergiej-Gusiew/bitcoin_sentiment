@@ -97,3 +97,7 @@ links.txt
 
 # pyenv
 .python-version
+
+# model
+model/base_model.pkl
+model/vectorizer.pkl
