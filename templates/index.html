@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- bootstrap style: https://getbootstrap.com/docs/4.3/getting-started/introduction/ -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <title>Sentiment Analysis for Bitcoin News</title>
+</head>
+
+<body>
+<div class="container">
+    <div class="card text-center">
+        <div class="card-header">
+            <h3>Sentiment Analysis for Bitcoin News</h3>
+        </div>
+
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>
+                    <small>Inspired by Kaggle competition:
+                        <a href="https://www.kaggle.com/datasets/ankurzing/sentiment-analysis-for-financial-news"> Link </a>
+                    </small>
+                </p>
+                <form method="POST">
+                    <label class="sr-only">Input news</label>
+                    <input type="text" class="form-control" name="news" placeholder="Input news headline here">
+                    <button style="background-color:#f2a900" type="submit" class="btn btn-primary btn-block mt-2" name="action">Estimate sentiment</button>
+                </form>
+
+                <form>
+                    <div class="form-row mt-5">
+                        <div class="col">
+                            <label for="news_id">News headline</label>
+                            <input type="text" class="form-control" id="news_id" placeholder="{{ news }}"
+                                   readonly>
+                        </div>
+                        <div class="col">
+                            <label for="prediction_id">Sentiment</label>
+                            <input type="text" class="form-control" id="prediction_id" placeholder="{{ prediction }}"
+                                   readonly>
+                        </div>
+                    </div>
+                </form>
+            </blockquote>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

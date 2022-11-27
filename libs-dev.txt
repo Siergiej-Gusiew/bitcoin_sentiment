@@ -9,3 +9,4 @@ black[jupyter]
 pre-commit
 nbqa
 eli5
+Flask

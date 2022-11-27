@@ -20,6 +20,7 @@ executing==1.2.0
 fastjsonschema==2.16.2
 filelock==3.8.0
 flake8==6.0.0
+Flask==2.2.2
 graphviz==0.20.1
 identify==2.5.9
 idna==3.4
@@ -29,6 +30,7 @@ ipykernel==6.17.1
 ipython==8.6.0
 ipython-genutils==0.2.0
 ipywidgets==8.0.2
+itsdangerous==2.1.2
 jedi==0.18.2
 Jinja2==3.1.2
 joblib==1.2.0
@@ -103,5 +105,6 @@ virtualenv==20.16.7
 wcwidth==0.2.5
 webencodings==0.5.1
 websocket-client==1.4.2
+Werkzeug==2.2.2
 widgetsnbextension==4.0.3
 zipp==3.11.0
