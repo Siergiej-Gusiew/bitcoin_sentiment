@@ -4,6 +4,7 @@ data_interim:
 data_output:
 model_input:
 model_output:
-  dumb_model: 'model/dumb_model.pkl'
   base_model: 'model/base_model.pkl'
-  good_model: 'model/good_model.pkl' 
+  good_model: 'model/good_model.pkl'
+reproducibility:
+  rnd_seed: 21
