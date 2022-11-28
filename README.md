@@ -2,16 +2,65 @@
 
 Flask-ML application to predict the sentiment of Bitcoin news
 
-## Local deployment
+## Local deployment (two alternative ways):
 ------------
+### I. Using virtual environment:
+0. Using this option, be aware that application work was tested only on
+Ubuntu 20.04.4 LTS, 64-bit
+1. Install Python 3.8.5 using pyenv (Python version management):
+
+        $ pyenv install 3.8.5
+2. Create local virtual environment using pyenv (Python version management) and
+pyenv-virtualenv (virtual environment management):
+
+        $ pyenv virtualenv 3.8.5 <name_of_your_virtualenv>
+3. Unzip the repo locally and open a terminal in the repo's directory
+4. Activate the pyenv virtual environment in the project's diroctory:
+
+        $ pyenv local <name_of_your_virtualenv>
+5. If you work in repository through VS Code, you usually have additionally
+to activate virtual environment for repo using:
+
+        Shift + Ctrl + P -> Python: Select Interpreteur ->
+        choose your environment and run a terminal for the following instructions
+6. To be sure that you use a relevant virtual environment use:
+
+        $ pyenv version
+    or
+
+        $ pyenv versions
+7. Install all the necessary deployment libraries and dependencies using:
+
+        $ pip install -r requirements.txt
+8. To check the list of the dependencies installed to the virtual environment use:
+
+        $ pip list
+9. Run the application from the repo directory using:
+
+        $ python app.py
+
+10. You can check the application work in your browser running:
+
+        http://127.0.0.1:5000
+11. To stop the application use Ctrl+C in your terminal
+12. If you don't have pyenv as a version management, use following instructions: [Link](https://realpython.com/intro-to-pyenv/#installing-pyenv)
+13. If you don't have pyenv-virtualenv as a virtual environment management, use
+following insturctions: [Link1](https://github.com/pyenv/pyenv-virtualenv), [Link2](https://realpython.com/intro-to-pyenv/#virtual-environments-and-pyenv)
+
+
+### II. Using Docker (recommended option):
 1. Unzip the repo locally and open a terminal in the repo's directory
 2. (optionally) Inslall Docker if you don't have it: [Link](https://docs.docker.com/engine/install/)
 3. Run the following in a terminal to build a Docker image:
 
-        docker build -t bitcoin_sentiment .
+        $ docker build -t bitcoin_sentiment .
 4. Run the following in a terminal to run an application in a Docker container:
 
-        docker run --rm -it -p 5000:5000 bitcoin_sentiment
+        $ docker run --rm -it -p 5000:5000 bitcoin_sentiment
+5. You can check the application work in your browser running:
+
+        http://127.0.0.1:5000
+6. To stop the application use Ctrl+C in your terminal
 
 ## Project Organization
 ------------
