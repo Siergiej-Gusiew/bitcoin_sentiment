@@ -61,6 +61,10 @@ following insturctions: [Link1](https://github.com/pyenv/pyenv-virtualenv), [Lin
 
         http://127.0.0.1:5000
 6. To stop the application use Ctrl+C in your terminal
+------------
+
+### Finally, you'll have to see this:
+![app](app.png)
 
 ## Project Organization
 ------------
