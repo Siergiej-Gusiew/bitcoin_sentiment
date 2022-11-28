@@ -3,8 +3,10 @@ import yaml
 from flask import Flask, request, render_template
 from src.models.base_model import LogReg
 
+
 # Flask instance
 app = Flask(__name__)
+
 
 # Config LOAD:
 directory_shift = ""

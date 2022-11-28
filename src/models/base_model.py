@@ -1,4 +1,5 @@
 import joblib
+from loguru import logger
 
 # import of local modules
 from .utils import word_to_tf_idf_vec
@@ -53,8 +54,15 @@ class LogReg:
     def _fit_vectorizer():
         pass
 
-    def save_vectorizer():
-        pass
+    def save_vectorizer(self, vectorizer_path: str) -> None:
+        """
+        Save vectorizer in vectorizer_path
+        @param vectorizer_path: str = example, 'model/vectorizer.pkl'
+        @return: None
+        """
+        joblib.dump(self.vectorizer, vectorizer_path)
+        logger.info("Vectorizer saving has been done")
+        return None
 
     def _split_data():
         pass
@@ -62,8 +70,15 @@ class LogReg:
     def fit_model():
         pass
 
-    def save_model():
-        pass
+    def save_model(self, model_path: str) -> None:
+        """
+        Save model in model_path
+        @param model_name: str = example, 'model/base_model.pkl'
+        @return: None
+        """
+        joblib.dump(self.model, model_path)
+        logger.info("Model saving has been done")
+        return None
 
 
 # print(LogReg().predict(sentence='12vgv'))

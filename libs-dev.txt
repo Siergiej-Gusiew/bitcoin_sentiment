@@ -10,3 +10,4 @@ pre-commit
 nbqa
 eli5
 Flask
+loguru
