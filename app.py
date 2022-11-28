@@ -1,12 +1,23 @@
 import os
+import yaml
 from flask import Flask, request, render_template
 from src.models.base_model import LogReg
 
 # Flask instance
 app = Flask(__name__)
 
-# Model class instance
-# model = LogReg()
+# Config LOAD:
+directory_shift = ""
+
+with open(directory_shift + "params.yaml") as conf_file:
+    config = yaml.safe_load(conf_file)
+
+base_model = config["model_output"]["base_model"]
+vectorizer_dir = config["model_output"]["vectorizer"]
+
+
+# Model class instance:
+model = LogReg(config, base_model, vectorizer_dir)
 
 
 @app.route("/", methods=["POST", "GET"])
@@ -14,8 +25,8 @@ def index():
     """Main form rendering"""
     if request.method == "POST":
         news_article = request.form["news"]
-        label = LogReg().predict(news_article)
-        return render_template("index.html", news=news_article, prediction=label)
+        category = model.predict(news_article)
+        return render_template("index.html", news=news_article, prediction=category)
     else:
         return render_template("index.html")
 
