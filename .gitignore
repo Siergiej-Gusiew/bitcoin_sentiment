@@ -93,7 +93,7 @@ target/
 data/raw/all-data.csv
 
 # personal notes:
-links.txt
+references/links.txt
 
 # pyenv
 .python-version

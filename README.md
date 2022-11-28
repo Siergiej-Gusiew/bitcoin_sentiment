@@ -2,23 +2,26 @@
 
 Flask-ML application to predict the sentiment of Bitcoin news
 
-## Installation
+## Local deployment
+------------
+1. Unzip the repo locally and open a terminal in the repo's directory
+2. (optionally) Inslall Docker if you don't have it: [Link](https://docs.docker.com/engine/install/)
+3. Run the following in a terminal to build a Docker image:
 
-First, ...
+        docker build -t bitcoin_sentiment .
+4. Run the following in a terminal to run an application in a Docker container:
+
+        docker run --rm -it -p 5000:5000 bitcoin_sentiment
 
 ## Project Organization
 ------------
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
+    ├── README.md          <- The top-level README with the deployment instuctions
     ├── data
     │   ├── external       <- Data from third party sources.
     │   ├── interim        <- Intermediate data that has been transformed.
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
     │
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
@@ -28,13 +31,21 @@ First, ...
     │
     ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
     │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
+    ├── libs.txt           <- A list of installed libraries (deployment)
     │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
+    ├── libs-dev.txt       <- A list of installed libraries (dev)
+    |
+    ├── requirements.txt   <- The deployment requirements file for reproducing the analysis environment, e.g.
     │                         generated with `pip freeze > requirements.txt`
+    |
+    ├── requirements-dev.txt   <- The requirements file for reproducing the project (dev)
     │
     ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
+    |
+    ├── Dockerfile         <- A script with instructions to build the project Docker image
+    |
+    ├── app.py             <- Flask application script
+    |
     ├── src                <- Source code for use in this project.
     │   ├── __init__.py    <- Makes src a Python module
     │   │
@@ -44,12 +55,9 @@ First, ...
     │   ├── features       <- Scripts to turn raw data into features for modeling
     │   │   └── build_features.py
     │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
+    │   └── models         <- Scripts to train models and then use trained models to make
+    │       │                 predictions
+    │       ├── predict_model.py
+    │       └── train_model.py
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
