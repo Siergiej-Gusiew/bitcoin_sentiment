@@ -5,6 +5,8 @@ data_output:
 model_input:
   rnd_seed: 21
   test_size: 0.20
+  regularization_strength: 0.01
+  class_weight: "balanced"
 vectorizer_input:
   max_features: 4000
   ngram_range: [1,2]

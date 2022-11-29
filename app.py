@@ -3,7 +3,6 @@ import yaml
 from flask import Flask, request, render_template
 from src.models.base_model import LogReg
 
-
 # Flask instance
 app = Flask(__name__)
 
@@ -19,7 +18,14 @@ vectorizer_dir = config["model_output"]["vectorizer"]
 
 
 # Model class instance:
-model = LogReg(config, base_model, vectorizer_dir)
+if os.path.exists(base_model) and os.path.exists(vectorizer_dir):
+    model = LogReg(config, base_model, vectorizer_dir)
+else:
+    train_model = LogReg(config)
+    train_model.fit_model()
+    train_model.save_vectorizer(vectorizer_dir)
+    train_model.save_model(base_model)
+    model = LogReg(config, base_model, vectorizer_dir)
 
 
 @app.route("/", methods=["POST", "GET"])
