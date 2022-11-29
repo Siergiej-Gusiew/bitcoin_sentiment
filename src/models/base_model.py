@@ -50,6 +50,10 @@ class LogReg:
         return pred_dict[y_pred]
 
     def _load_data(self) -> pd.DataFrame:
+        """
+        Load raw data
+        @return: pd.DataFrame
+        """
         df = pd.read_csv(
             self.config["data_input"]["all_data"],
             encoding="ISO-8859-1",
@@ -59,6 +63,11 @@ class LogReg:
         return df
 
     def _decode_target(self, df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Target labeling
+        @param df: pd.DataFrame
+        @return: pd.DataFrame
+        """
         keys = ["neutral", "positive", "negative"]
         vals = [0, 1, 2]
         map_dict = dict(zip(keys, vals))
@@ -69,6 +78,8 @@ class LogReg:
 
     def _split_data(self, df: pd.DataFrame) -> tuple:
         """
+        Test-train split of data
+        @param df: pd.DataFrame
         @return: tuple(pd.DataFrame)
         """
         X_train, X_test, y_train, y_test = train_test_split(
@@ -104,16 +115,9 @@ class LogReg:
         logger.info("vectorization data .. done")
         return (X_train_vec, X_test_vec)
 
-    # def _process_data(self, df: pd.DataFrame) -> pd.DataFrame:
-    #     return df
-
-    # def _fit_vectorizer():
-    #     # Look at _tf_idf function - don't duplicate
-    #     pass
-
     def fit_model(self) -> None:
         """
-        @param df_path: str = example, 'data/raw/all-data.csv'
+        Full pipelene of Logistic regression modelling with tf-idf
         @return: None
         """
         df = self._load_data()
@@ -150,7 +154,7 @@ class LogReg:
     def save_model(self, model_path: str) -> None:
         """
         Save model in model_path
-        @param model_name: str = example, 'model/base_model.pkl'
+        @param model_path: str = example, 'model/base_model.pkl'
         @return: None
         """
         joblib.dump(self.model, model_path)
