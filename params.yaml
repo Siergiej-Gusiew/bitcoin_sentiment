@@ -4,6 +4,10 @@ data_interim:
 data_output:
 model_input:
   rnd_seed: 21
+  test_size: 0.20
+vectorizer_input:
+  max_features: 4000
+  ngram_range: [1,2]
 model_output:
   base_model: 'model/base_model.pkl'
   good_model: 'model/good_model.pkl'
