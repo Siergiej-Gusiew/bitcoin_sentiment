@@ -1,8 +1,31 @@
 # Bitcoin news sentiment
 
-Flask-ML application to predict the sentiment of Bitcoin news
+Flask-ML application to predict the sentiment of Bitcoin news using tf-idf and
+logistic regression
 
-## Local deployment (two alternative ways):
+## Model reproducibility params:
+------------
+model_input:
+- rnd_seed: 21
+- test_size: 0.20
+- regularization_strength: 0.01
+- class_weight: "balanced"
+
+vectorizer_input:
+- max_features: 4000
+- ngram_range: [1,2]
+
+NOTE: you can change model params using 'params.yaml'
+
+## Modelling pipeline:
+------------
+1. src/models/base_model.py
+
+OR
+
+2. notebooks/model.ipynb
+
+## Local model deployment (two alternative ways):
 ------------
 ### I. Using virtual environment:
 0. Using this option, be aware that application work was tested only on
@@ -70,13 +93,11 @@ following insturctions: [Link1](https://github.com/pyenv/pyenv-virtualenv), [Lin
 ------------
 
     ├── README.md          <- The top-level README with the deployment instuctions
+    |
     ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
     │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
+    ├── model              <- Trained and serialized models, model predictions, or model summaries
     │
     ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
     │                         the creator's initials, and a short `-` delimited description, e.g.
@@ -84,6 +105,10 @@ following insturctions: [Link1](https://github.com/pyenv/pyenv-virtualenv), [Lin
     │
     ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
     │
+    ├── templates          <- A folder for .html templates
+    |
+    ├── params.yaml        <- Model params and artifacts paths
+    |
     ├── libs.txt           <- A list of installed libraries (deployment)
     │
     ├── libs-dev.txt       <- A list of installed libraries (dev)
@@ -92,8 +117,6 @@ following insturctions: [Link1](https://github.com/pyenv/pyenv-virtualenv), [Lin
     │                         generated with `pip freeze > requirements.txt`
     |
     ├── requirements-dev.txt   <- The requirements file for reproducing the project (dev)
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
     |
     ├── Dockerfile         <- A script with instructions to build the project Docker image
     |
@@ -102,15 +125,11 @@ following insturctions: [Link1](https://github.com/pyenv/pyenv-virtualenv), [Lin
     ├── src                <- Source code for use in this project.
     │   ├── __init__.py    <- Makes src a Python module
     │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
     │   └── models         <- Scripts to train models and then use trained models to make
     │       │                 predictions
     │       ├── predict_model.py
     │       └── train_model.py
-    │
+    |
+    ├── .pre-commit-config.yaml <- A script that automatically activates linters and formatters before each commit
+    |
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
