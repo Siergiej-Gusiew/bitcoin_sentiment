@@ -3,6 +3,12 @@
 Flask-ML application to predict the sentiment of Bitcoin news using tf-idf and
 logistic regression
 
+## Project artifacts:
+------------
+1. You can find all the necessary artifacts here: [Link](https://drive.google.com/drive/folders/1VLEOCD0heLWvYuIo4nzVevtZXoaQuSG_?usp=share_link)
+2. app.py designed to be capable of recreating model .pkl if 'model/' is empty
+3. if 'data/raw' is empty, you'll give an error message with instructions
+
 ## Model reproducibility params:
 ------------
 model_input:
