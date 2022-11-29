@@ -13,6 +13,7 @@ directory_shift = ""
 with open(directory_shift + "params.yaml") as conf_file:
     config = yaml.safe_load(conf_file)
 
+all_data = config["data_input"]["all_data"]
 base_model = config["model_output"]["base_model"]
 vectorizer_dir = config["model_output"]["vectorizer"]
 
@@ -21,6 +22,9 @@ vectorizer_dir = config["model_output"]["vectorizer"]
 if os.path.exists(base_model) and os.path.exists(vectorizer_dir):
     model = LogReg(config, base_model, vectorizer_dir)
 else:
+    # Data availability check:
+    if os.path.exists(all_data) is False:
+        raise Exception("Please, download 'all-data.csv' and put in to the 'data/raw/'")
     train_model = LogReg(config)
     train_model.fit_model()
     train_model.save_vectorizer(vectorizer_dir)
